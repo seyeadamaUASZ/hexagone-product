@@ -1,3 +1,3 @@
 # hexagone-product
 
-Hexagonal architecture with spring boot 
+Hexagonal architecture with spring boot using Domain driven design
