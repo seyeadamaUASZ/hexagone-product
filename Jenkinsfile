@@ -1,4 +1,5 @@
-node {
+pipeline {
+  agent {label 'master'}
   stage("Clone the project") {
     git branch: 'main', url: 'https://github.com/seyeadamaUASZ/hexagone-product.git'
   }
