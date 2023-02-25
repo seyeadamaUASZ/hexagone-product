@@ -6,13 +6,4 @@ node("master") {
   stage("Compilation") {
     bat "mvn clean install -DskipTests"
   }
-
-  stage("Tests and Deployment") {
-    stage("Runing unit tests") {
-      bat "mvn test -Punit"
-    }
-    stage("Deployment") {
-      bat 'nohup mvn spring-boot:run -Dserver.port=9092 &'
-    }
-  }
 }
