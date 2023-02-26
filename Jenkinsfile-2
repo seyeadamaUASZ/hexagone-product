@@ -14,5 +14,12 @@ node("master") {
   }
   stage('Docker Build') {
        bat 'docker build -t adama93/hexagone-product .'
-      }
+  }
+
+  stage('Docker Push') {
+    withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'Amadou031', usernameVariable: 'adama93')]) {
+    bat "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+    bat 'docker push adama93/hexagone-product:latest'
+    }
+  }
 }
