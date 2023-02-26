@@ -6,4 +6,12 @@ node("master") {
   stage("Compilation") {
     bat "mvn clean install -DskipTests"
   }
+
+  stage('Scan'){
+           steps{
+               withSonarQubeEnv(installationName:'sq1'){
+                   bat 'mvn clean install org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar -Dsonar.java.binaries=target/classes'
+               }
+           }
+  }
 }
