@@ -17,9 +17,9 @@ node("master") {
   }
 
   stage('Docker Push') {
-    withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'Amadou031', usernameVariable: 'adama93')]) {
+    withCredentials([usernamePassword(credentialsId: '082bdb62-13e2-4e45-8435-3c987256309f', passwordVariable: 'Amadou031', usernameVariable: 'adama93')]) {
     bat "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
     bat 'docker push adama93/hexagone-product:latest'
-    }
-  }
+ }
+}
 }
